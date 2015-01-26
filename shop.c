@@ -2,7 +2,7 @@
 
 // look at table for pricing
 // look at read input readln
-// extra = map to array
+// extra = map to arrays
 
 struct item 
 {
@@ -33,5 +33,6 @@ void display_items()
 
 int main()
 {
+	
 	display_items();
 }
