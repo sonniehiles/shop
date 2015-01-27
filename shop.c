@@ -7,19 +7,24 @@
 struct item 
 {
    int price;
+   char *name;
    char *description;
 };
 
+
 struct item items[] = {
-	{ .price = 123, .description = "bread" },
-	{ .price = 123, .description = "milk" },
-	{ .price = 123, .description = "cheese" }
+	{ .price = 132, .name = "Lazer", .description = "A light shooting devise"},
+	{ .price = 184, .name= "Shark", .description = "A dentists nightmare"},
+	{ .price = 121, .name = "Carrot", .description = "Lets you see in the dark" },
+	{ .price = 405, .name = "Tree", .description = "A tall oxygen maker"}
 	};
+
 
 int number_of_items() 
 {
 	return sizeof(items) / sizeof(struct item);
 }
+
 
 void display_items() 
 {
@@ -27,12 +32,13 @@ void display_items()
 
    for (int i = 0; i < num_items; i = i + 1)
    {
-   	printf("Item %d: %s\n", i, items[i].description);
+   	printf("Item %d: %s\n", i, items[i].name);
    }
 }
 
+
 int main()
 {
-	
 	display_items();
+	scanf("Which item would you like?");
 }
