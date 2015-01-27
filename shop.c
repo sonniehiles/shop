@@ -32,7 +32,8 @@ void display_items()
 
    for (int i = 0; i < num_items; i = i + 1)
    {
-   	printf("Item %d: %s\n", i, items[i].name);
+   	printf(items[3][number_of_items]);
+    //printf("Item %d: %s\n", i, items[i].name);
    }
 }
 
