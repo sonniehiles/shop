@@ -1,13 +1,14 @@
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
-// look at table for pricing
-// look at read input readln
-// extra = map to arrays
+#define false 0
+#define true !false
 
 struct item 
 {
    int price;
-   char *name;
+   char *name; //the start means its address in memory.
    char *description;
 };
 
@@ -32,14 +33,43 @@ void display_items()
 
    for (int i = 0; i < num_items; i = i + 1)
    {
-   	printf(items[3][number_of_items]);
-    //printf("Item %d: %s\n", i, items[i].name);
+   		printf("Item %d: %-15s %s %-15d\n", i +1, items[i].name, items[i].description, items[i].price);
    }
 }
 
 
 int main()
 {
-	display_items();
-	scanf("Which item would you like?");
+	int still_shopping;
+
+	still_shopping = true;
+
+	while (still_shopping)
+	{
+		char input[20];
+	
+		display_items();
+	
+		printf("\nEnter Item: \n");
+		scanf("%s", input);
+
+		if (strcmp(input, "q") == 0)
+		{
+			still_shopping = false;
+		}
+		else 
+		{
+			int item;
+			item = atoi(input) - 1; //1 index to 0 index
+
+			if (item < 0 || item >= number_of_items())
+			{
+				printf("That was invalid? \n");
+			} 
+			else
+			{
+				printf("you baught a: %s \n", items[item].name);
+			}
+		}
+	}
 }
